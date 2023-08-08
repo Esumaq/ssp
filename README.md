@@ -289,7 +289,7 @@ Escaping and quoting can be used to leave the space if needed.
 ```
 
 ### Multiline
-Multiline can be enabled by defining **`ss::multilne`** within the setup parameters. It enables the possibility to have the new line characters within rows. The new line character needs to be either escaped or within quotes so either **`ss::escape`** or **`ss::quote`** need to be enabled. There is a specific problem when using multiline, for example, if a row had an unterminated quote, the parser would assume it to be a new line within the row, so until another quote is found, it will treat it as one line which is fine usually, but it can cause the whole csv file to be treated as a single line by mistake. To prevent this **`ss::multiline_restricted`** can be used which accepts an unsigned number representing the maximum number of lines which can be allowed as a single multiline. Examples:
+Multiline can be enabled by defining **`ss::multiline`** within the setup parameters. It enables the possibility to have the new line characters within rows. The new line character needs to be either escaped or within quotes so either **`ss::escape`** or **`ss::quote`** need to be enabled. There is a specific problem when using multiline, for example, if a row had an unterminated quote, the parser would assume it to be a new line within the row, so until another quote is found, it will treat it as one line which is fine usually, but it can cause the whole csv file to be treated as a single line by mistake. To prevent this **`ss::multiline_restricted`** can be used which accepts an unsigned number representing the maximum number of lines which can be allowed as a single multiline. Examples:
 
 ```cpp
 ss::parser<ss::multiline, ss::quote<'\"'>, ss::escape<'\\'>> p{file_name};
